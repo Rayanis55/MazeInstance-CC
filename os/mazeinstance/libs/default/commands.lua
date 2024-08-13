@@ -14,16 +14,19 @@ function commands.cmd(command)
         print("desktop - Launch MIDesktop (Only Shell)")
         print("echo - Print text")
         print("help - Help command")
+        print("ls - Folder and files lists")
         print("reboot - Restart computer")
     elseif command:sub(1, 3) == "cd " then
         local path = command:sub(4)
         shell.run("cd " .. path)
-    elseif command:sub(1, 5) == "echo " then
-        local path = command:sub(6)
-        print(path)
     elseif command:sub(1, 5) == "clear" then
         term.clear()
         term.setCursorPos(1, 1)
+    elseif command:sub(1, 5) == "echo " then
+        local path = command:sub(6)
+        print(path)
+    elseif command:sub(1, 5) == "ls" then
+        shell.run("ls")
     elseif command:sub(1, 6) == "reboot" then
         print("Reboot...")
         sleep(1)
